@@ -195,7 +195,7 @@ window.onload=function(){
                 td2.style.fontWeight = 'bolder'
                 var delta = targetDate2 - Date.now()
                 var days = Math.floor(delta/(24*60*60*1000))
-                td2.innerText = td2.innerText + ' (' + days.toString() + ')'
+                td2.innerText = td2.innerText + '\n(' + days.toString() + ')'
             }
         }
         catch(e){}

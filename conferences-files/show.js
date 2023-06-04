@@ -170,19 +170,32 @@ window.onload=function(){
     get_on_click();
     document.querySelectorAll('tr').forEach(function(item) {
         var tds = item.querySelectorAll('td'),
-            td = tds[3]
+            td1 = tds[5], td2 = tds[6]
         try {
-            var targetDate = Date.parse(td.innerText)
-            if (targetDate < Date.now()) {
-                td.style.color = 'gray'
-                td.style.textDecoration = 'line-through'
+            var targetDate1 = Date.parse(td1.innerText)
+            if (targetDate1 < Date.now()) {
+                td1.style.color = 'gray'
+                td1.style.textDecoration = 'line-through'
             }
-            else if (targetDate - Date.now() < 1000*60*60*24*120) {
-                td.style.color = 'red'
-                td.style.fontWeight = 'bolder'
-                var delta = targetDate - Date.now()
+            else if (targetDate1 - Date.now() < 1000*60*60*24*120) {
+                td1.style.color = 'red'
+                td1.style.fontWeight = 'bolder'
+                var delta = targetDate1 - Date.now()
                 var days = Math.floor(delta/(24*60*60*1000))
-                td.innerText = td.innerText + ' (' + days.toString() + ')'
+                td1.innerText = td1.innerText + ' (' + days.toString() + ')'
+            }
+           
+            var targetDate2 = Date.parse(td2.innerText)
+            if (targetDate2 < Date.now()) {
+                td2.style.color = 'gray'
+                td2.style.textDecoration = 'line-through'
+            }
+            else if (targetDate2 - Date.now() < 1000*60*60*24*120) {
+                td2.style.color = 'red'
+                td2.style.fontWeight = 'bolder'
+                var delta = targetDate2 - Date.now()
+                var days = Math.floor(delta/(24*60*60*1000))
+                td2.innerText = td2.innerText + ' (' + days.toString() + ')'
             }
         }
         catch(e){}
